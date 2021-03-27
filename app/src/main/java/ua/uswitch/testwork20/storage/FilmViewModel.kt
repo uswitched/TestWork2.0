@@ -19,7 +19,7 @@ class FilmViewModel @Inject constructor(
         getFilm()
     }
 
-    private fun getFilm() {
+    fun getFilm() {
 
         viewModelScope.launch() {
             val list = filmRepository.fromDBFilms()

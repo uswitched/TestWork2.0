@@ -2,6 +2,8 @@ package ua.uswitch.testwork20.models
 
 import androidx.room.*
 import ua.uswitch.testwork20.BuildConfig
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Entity
 data class Film(
@@ -11,6 +13,11 @@ data class Film(
     var createDate: Long) {
     @Ignore
     var idPos: Int =0
+
+    fun getDateFormatted(): String {
+        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.GERMAN)
+        return formatter.format(Date(this.createDate))
+    }
 }
 
 @Dao
